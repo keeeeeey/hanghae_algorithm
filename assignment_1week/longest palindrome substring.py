@@ -1,12 +1,14 @@
 T = int(input())
 for t in range(1, T + 1):
-    a = 0
-    score = 0
-    N = str(input())
-    for i in range(len(N)):
-        if N[i] == "O":
-            a += 1
-            score += a
-        else:
-            a = 0
-    print(score)
+    sum_score = 0
+    sum_avg = 0
+    count = 0
+    N = list(map(int, input().split(" ")))
+    for i in range(1, len(N)):
+        sum_score += N[i]
+    sum_avg = sum_score / N[0]
+    for i in range(1, len(N)):
+        if N[i] > sum_avg:
+            count += 1
+    percent = count / N[0] * 100
+    print("{:.3f}%".format(percent))
